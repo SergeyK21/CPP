@@ -80,8 +80,6 @@ namespace auto_car
         void set_capacity(double capacity) { this->capacity_ = capacity; }
         // Ststic Метод доступа к private static переменной кол-во грузовых автомобилей
         static int get_counts_lorry() { return count_lorry; }
-        // Ststic Метод доступа к private static переменной кол-во автомобилей из класса Car
-        friend static int Car::get_counts_car();
         // Перегрузка оператора >>
         friend std::istream &operator>>(std::istream &is, Lorry &lorry)
         {

@@ -18,8 +18,13 @@ namespace auto_car
         static int count_car;
 
     public:
+// Пустой Конструктор
+        Car()
+        {
+            count_car++;
+        }
         // Конструктор
-        Car(std::string brand = "", int cylinders = 0,
+        Car(std::string brand, int cylinders = 0,
             int power = 0) : brand_(brand), cylinders_(cylinders), power_(power)
         {
             count_car++;
@@ -65,8 +70,14 @@ namespace auto_car
 
     public:
         // Конструктор
-        Lorry(std::string brand = "", int cylinders = 0,
+        Lorry(std::string brand, int cylinders = 0,
               int power = 0, double capacity = 0) : Car(brand, cylinders, power), capacity_(capacity)
+        {
+            count_lorry++;
+        }
+
+        //Пустой Конструктор
+        Lorry() : Car()
         {
             count_lorry++;
         }
@@ -81,7 +92,7 @@ namespace auto_car
         // Ststic Метод доступа к private static переменной кол-во грузовых автомобилей
         static int get_counts_lorry() { return count_lorry; }
         // Ststic Метод доступа к private static переменной кол-во автомобилей из класса Car
-        friend static int Car::get_counts_car();
+        friend int Car::get_counts_car();
         // Перегрузка оператора >>
         friend std::istream &operator>>(std::istream &is, Lorry &lorry)
         {
@@ -105,7 +116,7 @@ namespace auto_car
             double capacity = lorry.get_capacity();
             os << "Бренд - " << brand << ", кол-во цилиндров - " << cylinders << ", мощность - " << power
                << " л.с."
-               << ", грузоподъемность - " << capacity << " тон";
+               << ", грузоподъемность - " << capacity << " тонн";
             return os;
         }
     };
