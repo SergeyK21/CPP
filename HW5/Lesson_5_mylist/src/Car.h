@@ -18,13 +18,8 @@ namespace auto_car
         static int count_car;
 
     public:
-// Пустой Конструктор
-        Car()
-        {
-            count_car++;
-        }
         // Конструктор
-        Car(std::string brand, int cylinders = 0,
+        Car(std::string brand = "", int cylinders = 0,
             int power = 0) : brand_(brand), cylinders_(cylinders), power_(power)
         {
             count_car++;
@@ -70,14 +65,8 @@ namespace auto_car
 
     public:
         // Конструктор
-        Lorry(std::string brand, int cylinders = 0,
+        Lorry(std::string brand = "", int cylinders = 0,
               int power = 0, double capacity = 0) : Car(brand, cylinders, power), capacity_(capacity)
-        {
-            count_lorry++;
-        }
-
-        //Пустой Конструктор
-        Lorry() : Car()
         {
             count_lorry++;
         }

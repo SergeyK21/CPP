@@ -16,11 +16,11 @@ int main()
     for (int i = 0; i < 6; i++)
         if (i % 2 == 0)
         {
-            cars.push_front(Car());
+            cars.push_front(*new Car());
         }
         else
         {
-            lorrys.push_front(Lorry());
+            lorrys.push_front(*new Lorry());
         }
     //Не работают статические переменнае, в остальном все функционирует. 
     std::cout << lorrys[0].get_counts_car() << std::endl;
